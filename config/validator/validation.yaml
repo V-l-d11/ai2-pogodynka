@@ -1,0 +1,30 @@
+# config/validator/validation.yaml
+App\Entity\Measurement:
+  properties:
+    location:
+      - NotBlank:
+          groups: ['new', 'edit']
+          message: 'Location is not valid.'
+    date:
+      - NotBlank:
+          groups: ['new', 'edit']
+          message: 'Date cannot be blank.'
+
+      - Type:
+          type: \DateTime
+          groups: [ 'create', 'edit' ]
+          message: 'Please enter a valid date and time.'
+
+    celsius:
+      - NotBlank:
+          groups: ['new', 'edit']
+          message: 'Temperature cannot be blank.'
+      - Regex:
+          pattern: '/^-?\d+(\.\d+)?$/'
+          message: 'Enter a valid temperature in Celsius (e.g., 25 or -5.3).'
+          groups: ['new', 'edit']
+      - Range:
+          min: -100
+          max: 100
+          notInRangeMessage: 'Temperature must be between {{ min }} and {{ max }} degrees.'
+          groups: ['new', 'edit']
