@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Location{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-4">New Location</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="card p-4 shadow-sm">
+                    {{ form_start(form) }}
+                    <div class="mb-3">
+                        {{ form_label(form.city, 'City', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.city) }}</span>
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.country, 'Country', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.country, {'attr': {'class': 'form-select'}}) }}
+                        <span class="text-danger">{{ form_errors(form.country) }}</span>
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.latitude, 'Latitude', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.latitude, {'attr': {'class': 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.latitude) }}</span>
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.longitude, 'Longitude', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.longitude, {'attr': {'class': 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.longitude) }}</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    {{ form_end(form) }}
+                </div>
+                <a href="{{ path('app_location_index') }}" class="d-block mt-3">back to list</a>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+{% endblock %}

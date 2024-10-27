@@ -1,0 +1,22 @@
+{{ form_start(form) }}
+<div class="mb-3">
+    {{ form_label(form.location) }}
+    {{ form_widget(form.location, {'attr': {'class': 'form-control'}}) }}
+    <span class="text-danger">{{ form_errors(form.location) }}</span>
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.date, 'Date', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+    <span class="text-danger">{{ form_errors(form.date) }}</span>
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.celsius) }}
+    {{ form_widget(form.celsius, {'attr': {'class': 'form-control'}}) }}
+    <span class="text-danger">{{ form_errors(form.celsius) }}</span>
+</div>
+
+<button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
