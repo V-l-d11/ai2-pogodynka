@@ -65,8 +65,14 @@ class LocationController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('app_location_index', [], Response::HTTP_SEE_OTHER);
-        }
+        }else {
 
+            $errors = [];
+            foreach ($form->getErrors(true) as $error) {
+                $errors[] = $error->getMessage();
+            }
+            dump($errors);
+        }
         return $this->render('location/edit.html.twig', [
             'location' => $location,
             'form' => $form,

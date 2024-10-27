@@ -26,14 +26,12 @@ class MeasurementType extends AbstractType
                 ],
                 'placeholder' => 'Select a location',
             ])
-            ->add('date',  DateTimeType::class, [
+            ->add('date',  null, [
                 'widget' => 'single_text',
                 'input' => 'datetime',
-
-             'html5' => false,
-             //   'format' => 'Y-m-d',
+                 'html5' => false,
                'constraints' => [
-              //      new Assert\NotBlank(groups: ['new', 'edit']),
+                   new Assert\NotBlank(groups: ['new', 'edit']),
                  //   new Assert\DateTime(groups: ['new', 'edit']),
                 ],
             ])
@@ -41,7 +39,7 @@ class MeasurementType extends AbstractType
                 'constraints' => [
                     new Assert\NotBlank(groups: ['new', 'edit']),
                     new Assert\Regex([
-                        'pattern' => '/^-?\d+(\.\d+)?$/', // Позволяет целые и дробные числа
+                        'pattern' => '/^-?\d+(\.\d+)?$/',
                         'message' => 'Temperature must be a valid number (e.g., 25 or -5.3).',
                         'groups' => ['new', 'edit'],
                     ]),

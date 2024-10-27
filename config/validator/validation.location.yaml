@@ -19,3 +19,6 @@ App\Entity\Location:
     country:
       - NotBlank:
           groups: [ 'create', 'edit' ]
+    city:
+      - NotBlank:
+          groups: [ 'create', 'edit' ]

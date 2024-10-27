@@ -10,10 +10,7 @@ App\Entity\Measurement:
           groups: ['new', 'edit']
           message: 'Date cannot be blank.'
 
-      - Type:
-          type: \DateTime
-          groups: [ 'create', 'edit' ]
-          message: 'Please enter a valid date and time.'
+
 
     celsius:
       - NotBlank:
