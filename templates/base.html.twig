@@ -39,10 +39,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="http://pogodynka.localhost:51164/weather/conditions">Measurements</a>
                     </li>
+
+
                 </ul>
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('app_logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">Login</a>
+                {% endif %}
+
             </div>
         </div>
     </nav>
+
+
+
 
         {% block body %}{% endblock %}
 
