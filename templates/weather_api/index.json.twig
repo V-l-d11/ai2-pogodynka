@@ -1,0 +1,45 @@
+{#
+
+// templates/weather_api/index.json.twig
+<div>Json Page Format</div>
+<div>
+<div>
+<span style="font-weight: bold;">City:</span> <span>{{ city }}</span>
+</div>
+<div>
+<span style="font-weight: bold;">Country:</span> <span>{{ country }}</span>
+</div>
+<div style="margin-top: 10px;">
+<span style="font-weight: bold;">Measurements:</span>
+<div style="margin-top: 5px;">
+<div style="width:20%;display: flex; justify-content: space-between;">
+<span style="font-weight: bold;">Date</span>
+<span style="font-weight: bold;">Celsius</span>
+</div>
+{% for measurement in measurements %}
+<div style="width:20%;display: flex; justify-content: space-between;">
+<span>{{ measurement.date|date('Y-m-d') }}</span>
+<span>{{ measurement.celsius }} °C</span>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+
+#}
+
+{
+    "city": "{{ city }}",
+    "country": "{{ country }}",
+    "measurements": [
+        {% for measurement in measurements %}
+        {
+            "date": "{{ measurement.date }}",
+            "celsius": "{{ measurement.celsius }}",
+            "fahrenheit": "{{ measurement.fahrenheit }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+}
+
+

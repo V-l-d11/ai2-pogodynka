@@ -1,0 +1,11 @@
+{# templates/weather_api/index.csv.twig #}
+City,Country,Date,Celsius
+<br>
+{% if measurements is not empty %}
+
+{% endif %}
+{% for measurement in measurements %}
+<br>
+{{ city }},{{ country }},{{ measurement.date }},{{ measurement.celsius }},{{ measurement.fahrenheit }}
+{% if not loop.last %}\n{% endif %}
+{% endfor %}
